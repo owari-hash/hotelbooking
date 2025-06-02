@@ -55,7 +55,7 @@ export default function Searchbar({ sx }: SearchbarProps) {
               autoFocus
               fullWidth
               disableUnderline
-              placeholder="Search…"
+              placeholder="Хайх…"
               startAdornment={
                 <InputAdornment position="start">
                   <Iconify icon="carbon:search" sx={{ color: 'text.disabled' }} />
@@ -64,7 +64,7 @@ export default function Searchbar({ sx }: SearchbarProps) {
               sx={{ mr: 1, fontWeight: 'fontWeightBold' }}
             />
             <Button variant="contained" onClick={searchOpen.onFalse}>
-              Search
+              Хайх
             </Button>
           </StyledSearchbar>
         </Slide>

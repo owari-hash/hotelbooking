@@ -108,12 +108,12 @@ export const pageLinks = [
 ];
 
 export const navConfig = [
-  { title: 'Home', path: '/' },
-  { title: 'Components', path: paths.components.root },
+  { title: 'Нүүр хуудас', path: '/' },
+  { title: 'Өрөөний хувиар харах', path: paths.components.root },
   {
-    title: 'Pages',
+    title: 'Өрөөнүүд',
     path: paths.pages,
     children: [pageLinks[0], pageLinks[1], pageLinks[2], pageLinks[3], pageLinks[4], pageLinks[5]],
   },
-  { title: 'Docs', path: paths.docs },
+  { title: 'Холбоо барих', path: paths.docs },
 ];

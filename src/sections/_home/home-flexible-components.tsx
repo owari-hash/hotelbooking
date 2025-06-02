@@ -36,10 +36,12 @@ import { varFade, MotionViewport } from 'src/components/animate';
 
 // ----------------------------------------------------------------------
 
-const FASHION_CATEGORY = [
-  { value: 'clothes', label: 'Clothes' },
-  { value: 'footwear', label: 'Footwear' },
-  { value: 'jean', label: 'Jean' },
+const SERVICE_CATEGORY = [
+  { value: 'hotel', label: 'Зочид буудал' },
+  { value: 'resort', label: 'Амралтын газар' },
+  { value: 'apartment', label: 'Апартмент' },
+  { value: 'ger', label: 'Гэр буудал' },
+  { value: 'guesthouse', label: 'Зочны байр' },
 ];
 
 // ----------------------------------------------------------------------
@@ -51,7 +53,7 @@ export default function HomeFlexibleComponents() {
 
   const [alignment, setAlignment] = useState('left');
 
-  const [category, setCategory] = useState('clothes');
+  const [category, setCategory] = useState('hotel');
 
   const [rating, setRating] = useState<number | null>(5);
 
@@ -101,33 +103,34 @@ export default function HomeFlexibleComponents() {
           >
             <m.div variants={varFade().inUp}>
               <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-                Interface Starter Kit
+                ЗАХИАЛГЫН СИСТЕМ
               </Typography>
             </m.div>
 
             <m.div variants={varFade().inUp}>
               <Typography variant="h2" sx={{ my: 3 }}>
-                Flexible Components
+                Таны захиалга
               </Typography>
             </m.div>
 
             <m.div variants={varFade().inUp}>
               <Typography sx={{ color: 'text.secondary', mb: 5 }}>
-                Pre-set components are easy to customize and use. We collected most popular
-                elements. Menu, sliders, buttons, inputs etc. are all here. Just dive in!
+                Та манай системээр дамжуулан өөрт тохирох зочид буудал, амралтын газар, жуулчны
+                бааз, гэр буудал болон зочны байрыг захиалах боломжтой. Бид таны захиалгыг 24/7
+                хүлээн авч, түргэн шуурхай үйлчилнэ.
               </Typography>
             </m.div>
 
             <m.div variants={varFade().inUp}>
               <Button
                 component={RouterLink}
-                href={paths.components.root}
+                href={paths.minimalStore}
                 color="inherit"
                 size="large"
                 variant="outlined"
                 endIcon={<Iconify icon="carbon:chevron-right" width={16} />}
               >
-                Browse Components
+                Захиалга хийх
               </Button>
             </m.div>
           </MotionViewport>
@@ -303,14 +306,14 @@ export default function HomeFlexibleComponents() {
 
                 <TextField
                   select
-                  label="Category"
+                  label="Үйлчилгээний төрөл"
                   value={category}
                   onChange={handleChangeCategory}
                   SelectProps={{
                     native: true,
                   }}
                 >
-                  {FASHION_CATEGORY.map((option) => (
+                  {SERVICE_CATEGORY.map((option) => (
                     <option key={option.value} value={option.value}>
                       {option.label}
                     </option>

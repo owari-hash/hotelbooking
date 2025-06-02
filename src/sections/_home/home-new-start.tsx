@@ -1,11 +1,13 @@
 import { m } from 'framer-motion';
 
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import Image from 'src/components/image';
+import Iconify from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
 
 // ----------------------------------------------------------------------
@@ -29,34 +31,92 @@ export default function HomeNewStart() {
       >
         <m.div variants={varFade().inUp}>
           <Image
-            alt="cover"
-            src="/assets/images/home/new_start.png"
-            sx={{ maxWidth: 720, mx: 'auto' }}
+            alt="luxury hotel"
+            src="/assets/images/hotel/hero_4.jpg"
+            sx={{ mx: 'auto', borderRadius: 2, boxShadow: 3 }}
           />
         </m.div>
 
         <Box sx={{ mt: 3, mx: 'auto', px: 3, maxWidth: 560 }}>
           <m.div variants={varFade().inDown}>
             <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-              new start
+              ҮЙЛЧИЛГЭЭНИЙ ТӨРӨЛ
             </Typography>
           </m.div>
 
           <m.div variants={varFade().inDown}>
             <Typography variant="h2" sx={{ my: 3 }}>
-              The
               <Box component="span" sx={{ color: 'primary.main' }}>
-                {` ZONE `}
-              </Box>
-              UI Kit
+                Тансаг зэрэглэлийн
+              </Box>{' '}
+              зочид буудал
             </Typography>
           </m.div>
 
           <m.div variants={varFade().inDown}>
             <Typography sx={{ color: 'text.secondary' }}>
-              Modern ui kit to save your time, boost your creativity. Neat and super stylish layout
-              ready to help with your projects
+              5 одтой тансаг зэрэглэлийн зочид буудлууд. Өндөр зэрэглэлийн үйлчилгээ, тав тухтай
+              орчин, олон улсын стандартад нийцсэн өрөөнүүд. Та манай системээр хамгийн хямд үнээр
+              захиалга хийх боломжтой.
             </Typography>
+          </m.div>
+
+          <m.div variants={varFade().inDown}>
+            <Stack spacing={3} direction="row" justifyContent="center" sx={{ mt: 5 }}>
+              <Box sx={{ textAlign: 'center', px: 3 }}>
+                <Iconify
+                  icon="solar:clock-circle-bold"
+                  sx={{
+                    mb: 2,
+                    width: 40,
+                    height: 40,
+                    color: 'primary.main',
+                  }}
+                />
+                <Typography variant="h4" sx={{ color: 'primary.main' }}>
+                  24/7
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  Үйлчилгээ
+                </Typography>
+              </Box>
+
+              <Box sx={{ textAlign: 'center', px: 3 }}>
+                <Iconify
+                  icon="solar:star-bold"
+                  sx={{
+                    mb: 2,
+                    width: 40,
+                    height: 40,
+                    color: 'primary.main',
+                  }}
+                />
+                <Typography variant="h4" sx={{ color: 'primary.main' }}>
+                  5★
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  Зэрэглэл
+                </Typography>
+              </Box>
+
+              <Box sx={{ textAlign: 'center', px: 3 }}>
+                <Iconify
+                  icon="solar:shield-check-bold"
+                  sx={{
+                    mb: 2,
+                    width: 40,
+                    height: 40,
+                    color: 'primary.main',
+                  }}
+                />
+                <Typography variant="h4" sx={{ color: 'primary.main' }}>
+                  100%
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  Баталгаат
+                </Typography>
+              </Box>
+            </Stack>
           </m.div>
         </Box>
       </Paper>

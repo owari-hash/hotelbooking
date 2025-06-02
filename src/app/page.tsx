@@ -4,7 +4,7 @@ import HomeView from 'src/sections/_home/view/home-view';
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'The starting point for your next project',
+  title: 'Тансаг буудлыг эндээс | HTBooking',
 };
 
 export default function HomePage() {

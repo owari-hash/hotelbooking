@@ -111,7 +111,7 @@ function CarouselItem({ item, active }: CarouselItemProps) {
 
         <m.div variants={variants}>
           <Button variant="contained" sx={{ mt: 3 }}>
-            View More
+            Дэлгэрэнгүй
           </Button>
         </m.div>
       </CardContent>
