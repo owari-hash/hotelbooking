@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import { alpha, useTheme } from '@mui/material/styles';
 
-import { _mock } from 'src/_mock';
 import { paths } from 'src/routes/paths';
 import { bgGradient } from 'src/theme/css';
 import Iconify from 'src/components/iconify';
@@ -54,12 +53,7 @@ const HERO_SLIDES = [
 
 export default function HomeHero() {
   const theme = useTheme();
-  const _carouselsExample = [...Array(20)].map((_, index) => ({
-    id: _mock.id(index),
-    title: _mock.postTitle(index),
-    coverUrl: _mock.image.cover(index),
-    description: _mock.description(index),
-  }));
+
   return (
     <Box
       sx={{

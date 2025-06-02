@@ -56,7 +56,7 @@ export default function Footer() {
       <Logo single />
 
       <Typography variant="caption" component="div" sx={{ color: 'text.secondary' }}>
-        © 2023. All rights reserved
+        ©2025. Бүх эрх хуулиар хамгаалагдсан
       </Typography>
     </Container>
   );

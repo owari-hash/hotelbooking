@@ -49,11 +49,9 @@ export default function ElearningOurClients({ brands }: Props) {
           mb: { xs: 8, md: 10 },
         }}
       >
-        <Typography variant="h2">We Work With</Typography>
+        <Typography variant="h2">Хамтрагч байгууллагууд</Typography>
 
-        <Typography sx={{ color: 'text.secondary' }}>
-          Quisque aliquet, libero consequat elementum convallis.
-        </Typography>
+        <Typography sx={{ color: 'text.secondary' }}>Хамгийн тансаг өрөөг манайхаас</Typography>
       </Stack>
 
       <Carousel {...carousel.carouselSettings}>
