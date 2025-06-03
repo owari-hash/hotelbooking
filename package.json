@@ -25,7 +25,7 @@
     "@mui/lab": "^5.0.0-alpha.135",
     "@mui/material": "^5.13.7",
     "@mui/system": "^5.13.7",
-    "@mui/x-date-pickers": "^6.9.2",
+    "@mui/x-date-pickers": "^6.20.2",
     "@zone-kit/next-ts": "file:",
     "date-fns": "^2.30.0",
     "framer-motion": "^10.12.18",

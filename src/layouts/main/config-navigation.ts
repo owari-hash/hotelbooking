@@ -34,7 +34,7 @@ export const pageLinks = [
 
 export const navConfig = [
   { title: 'Нүүр хуудас', path: '/' },
-  { title: 'Буудлын жагсаалт', path: paths.components.root },
+  { title: 'Буудлын жагсаалт', path: paths.hotel.root },
   {
     title: 'Өрөөний төрөл',
     path: paths.pages,
