@@ -65,7 +65,11 @@ export default function MegaMenuMobile({ data, open, action, onOpen, onClose }: 
           <Logo sx={{ mx: 2.5, my: 3 }} />
 
           {data.map((parent) => (
-            <SubMenu key={parent.title} parent={parent} pathname={pathname} />
+            <SubMenu
+              key={parent.title}
+              parent={parent}
+              pathname={pathname ?? ''} // Provide default empty string if null
+            />
           ))}
         </Scrollbar>
       </Drawer>
@@ -105,7 +109,7 @@ const ParentItem = forwardRef<HTMLDivElement, ParentItemProps>(
 
 type SubMenuProps = {
   parent: MegaMenuItemProps;
-  pathname: string;
+  pathname: string | null; // Allow null value
 };
 
 function SubMenu({ parent, pathname }: SubMenuProps) {
