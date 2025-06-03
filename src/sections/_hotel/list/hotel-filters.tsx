@@ -2,12 +2,14 @@ import { useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import Radio from '@mui/material/Radio';
+import Rating from '@mui/material/Rating';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
-import Rating from '@mui/material/Rating';
 import Divider from '@mui/material/Divider';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
+import RadioGroup from '@mui/material/RadioGroup';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -22,7 +24,7 @@ type Props = {
   onCloseFilter?: VoidFunction;
 };
 
-const RATINGS = ['5', '4', '3', '2', '1'];
+const RATINGS = ['up_4_stars', 'up_3_stars', 'up_2_stars'];
 
 const HOTEL_TYPES = [
   { label: 'Зочид буудал', value: 'hotel' },
@@ -40,9 +42,26 @@ const AMENITIES = [
   { label: 'Усан сан', value: 'pool' },
 ];
 
+const getRatingValue = (rating: string): number => {
+  switch (rating) {
+    case 'up_4_stars':
+      return 4;
+    case 'up_3_stars':
+      return 3;
+    case 'up_2_stars':
+      return 2;
+    default:
+      return 0;
+  }
+};
+
 export default function HotelFilters({ openFilter, onOpenFilter, onCloseFilter }: Props) {
   const mdUp = useResponsive('up', 'md');
-  const [rating, setRating] = useState<string | null>(null);
+  const [filterRating, setFilterRating] = useState<string | null>(null);
+
+  const handleChangeRating = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFilterRating(event.target.value);
+  };
 
   const renderContent = (
     <Scrollbar
@@ -67,16 +86,45 @@ export default function HotelFilters({ openFilter, onOpenFilter, onCloseFilter }
 
         <Stack spacing={1}>
           <Typography variant="h6">Үнэлгээ</Typography>
-          <Stack spacing={2}>
-            {RATINGS.map((option) => (
-              <Stack key={option} direction="row" alignItems="center">
-                <Rating size="small" value={Number(option)} readOnly sx={{ mr: 1 }} />
-                <Typography variant="body2">
-                  {option} од {rating === option && 'дээш'}
-                </Typography>
-              </Stack>
-            ))}
-          </Stack>
+          <RadioGroup value={filterRating} onChange={handleChangeRating}>
+            <Stack spacing={2} alignItems="flex-start">
+              {RATINGS.map((rating) => (
+                <FormControlLabel
+                  key={rating}
+                  value={rating}
+                  control={<Radio sx={{ display: 'none' }} />}
+                  label={
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      sx={{
+                        ...(filterRating === rating && {
+                          fontWeight: 'fontWeightSemiBold',
+                        }),
+                      }}
+                    >
+                      <Rating
+                        size="small"
+                        value={getRatingValue(rating)}
+                        readOnly
+                        sx={{
+                          mr: 1,
+                          ...(filterRating === rating && {
+                            opacity: 0.48,
+                          }),
+                        }}
+                      />
+                      <Typography variant="body2">& Дээш</Typography>
+                    </Stack>
+                  }
+                  sx={{
+                    m: 0,
+                    '&:hover': { opacity: 0.48 },
+                  }}
+                />
+              ))}
+            </Stack>
+          </RadioGroup>
         </Stack>
 
         <Divider />
