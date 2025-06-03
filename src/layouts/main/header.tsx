@@ -83,7 +83,7 @@ export default function Header({ headerOnDark }: Props) {
                 target="_blank"
                 rel="noopener"
               >
-                Захиалга өгөх
+                Шуурхай захиалга
               </Button>
             )}
           </Stack>

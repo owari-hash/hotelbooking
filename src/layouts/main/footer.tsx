@@ -1,5 +1,4 @@
 import Link from '@mui/material/Link';
-import Masonry from '@mui/lab/Masonry';
 import Divider from '@mui/material/Divider';
 import Collapse from '@mui/material/Collapse';
 import TextField from '@mui/material/TextField';
@@ -138,22 +137,6 @@ export default function Footer() {
                 <AppStoreButton />
               </Stack>
             </Stack>
-          </Grid>
-
-          <Grid xs={12} md={6}>
-            {mdUp ? (
-              <Masonry columns={4} spacing={2} defaultColumns={4} defaultSpacing={2}>
-                {renderLists.map((list) => (
-                  <ListDesktop key={list.subheader} list={list} />
-                ))}
-              </Masonry>
-            ) : (
-              <Stack spacing={1.5}>
-                {renderLists.map((list) => (
-                  <ListMobile key={list.subheader} list={list} />
-                ))}
-              </Stack>
-            )}
           </Grid>
         </Grid>
       </Container>

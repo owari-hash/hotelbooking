@@ -30,11 +30,7 @@ export default function NavList({ item }: { item: NavItemBaseProps }) {
 
   const externalLink = item.path.includes('http');
 
-  const mainList = item.children ? item.children.filter((list) => list.subheader !== 'Common') : [];
-
-  const commonList = item.children
-    ? item.children.find((list) => list.subheader === 'Common')
-    : null;
+  const mainList = item.children || [];
 
   useEffect(() => {
     if (menuOpen.value) {
@@ -64,8 +60,8 @@ export default function NavList({ item }: { item: NavItemBaseProps }) {
         <Portal>
           <Fade in={menuOpen.value}>
             <StyledMenu onMouseEnter={handleOpenMenu} onMouseLeave={menuOpen.onFalse}>
-              <Grid container columns={15}>
-                <Grid xs={12}>
+              <Grid container columns={15} justifyContent="center" alignItems="center">
+                <Grid xs={15}>
                   <Box
                     gap={5}
                     display="grid"
@@ -75,27 +71,27 @@ export default function NavList({ item }: { item: NavItemBaseProps }) {
                       height: 1,
                       position: 'relative',
                       bgcolor: 'background.neutral',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      '& > *': {
+                        textAlign: 'center',
+                      },
                     }}
                   >
-                    {mainList.map((list) => (
-                      <NavSubList
-                        key={list.subheader}
-                        subheader={list.subheader}
-                        cover={list.cover}
-                        items={list.items}
-                        isNew={list.isNew}
-                      />
-                    ))}
+                    {mainList
+                      .filter((list) => list && list.subheader && Array.isArray(list.items))
+                      .map((list) => (
+                        <NavSubList
+                          key={list.subheader}
+                          subheader={list.subheader}
+                          cover={list.cover}
+                          items={list.items}
+                          isNew={list.isNew}
+                        />
+                      ))}
                   </Box>
                 </Grid>
-
-                {commonList && (
-                  <Grid xs={3}>
-                    <Box sx={{ bgcolor: 'background.default', p: 5 }}>
-                      <NavSubList subheader={commonList.subheader} items={commonList.items} />
-                    </Box>
-                  </Grid>
-                )}
               </Grid>
             </StyledMenu>
           </Fade>
@@ -109,13 +105,17 @@ export default function NavList({ item }: { item: NavItemBaseProps }) {
 
 function NavSubList({ subheader, isNew, cover, items }: NavListProps) {
   const pathname = usePathname();
-
   const coverPath = items.length ? items[0].path : '';
 
-  const commonList = subheader === 'Common';
-
   return (
-    <Stack spacing={2}>
+    <Stack
+      spacing={2}
+      alignItems="center"
+      sx={{
+        width: '100%',
+        mx: 'auto',
+      }}
+    >
       <StyledSubheader>
         {subheader}
         {isNew && (
@@ -125,31 +125,38 @@ function NavSubList({ subheader, isNew, cover, items }: NavListProps) {
         )}
       </StyledSubheader>
 
-      {!commonList && (
-        <Link component={RouterLink} href={coverPath}>
-          <Image
-            disabledEffect
-            alt={cover}
-            src={cover || '/assets/placeholder.svg'}
-            ratio="16/9"
-            sx={{
-              borderRadius: 1,
-              cursor: 'pointer',
-              boxShadow: (theme) => theme.customShadows.z8,
-              transition: (theme) => theme.transitions.create('all'),
-              '&:hover': {
-                opacity: 0.8,
-                boxShadow: (theme) => theme.customShadows.z24,
-              },
-            }}
-          />
-        </Link>
-      )}
+      <Link
+        component={RouterLink}
+        href={coverPath}
+        sx={{
+          width: '100%',
+          display: 'block',
+        }}
+      >
+        <Image
+          disabledEffect
+          alt={subheader}
+          src={cover || '/assets/placeholder.svg'}
+          ratio="16/9"
+          sx={{
+            width: '100%',
+            height: 200,
+            objectFit: 'cover',
+            borderRadius: 1,
+            cursor: 'pointer',
+            boxShadow: (theme) => theme.customShadows.z8,
+            transition: (theme) => theme.transitions.create('all'),
+            '&:hover': {
+              opacity: 0.8,
+              boxShadow: (theme) => theme.customShadows.z24,
+            },
+          }}
+        />
+      </Link>
 
-      <Stack spacing={1.5} alignItems="flex-start">
+      <Stack spacing={1.5} alignItems="center" sx={{ width: '100%' }}>
         {items.map((item) => {
           const active = pathname === item.path || pathname === `${item.path}/`;
-
           return <NavItem key={item.title} item={item} active={active} subItem />;
         })}
       </Stack>

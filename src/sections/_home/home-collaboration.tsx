@@ -13,7 +13,7 @@ type Props = {
   brands: IBrandProps[];
 };
 
-export default function ElearningOurClients({ brands }: Props) {
+export default function CollaborationBrands({ brands }: Props) {
   const theme = useTheme();
 
   const carousel = useCarousel({
