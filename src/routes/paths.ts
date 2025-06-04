@@ -1,6 +1,10 @@
 // ----------------------------------------------------------------------
 
 export const paths = {
+  about: {
+    root: '/hotel/about',
+  },
+
   hotel: {
     root: '/hotel',
     room: '/hotel/room',

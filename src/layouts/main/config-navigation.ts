@@ -40,5 +40,5 @@ export const navConfig = [
     path: paths.pages,
     children: [pageLinks[0], pageLinks[1], pageLinks[2], pageLinks[3], pageLinks[4]],
   },
-  { title: 'Холбоо барих', path: paths.docs },
+  { title: 'Бидний тухай', path: paths.about.root },
 ];

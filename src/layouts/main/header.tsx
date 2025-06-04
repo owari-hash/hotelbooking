@@ -1,16 +1,18 @@
+import { usePathname } from 'next/navigation';
+
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { useTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
+import { useTheme } from '@mui/material/styles';
 
 import Logo from 'src/components/logo';
 import { bgBlur } from 'src/theme/css';
 import { paths } from 'src/routes/paths';
-import { useOffSetTop } from 'src/hooks/use-off-set-top';
 import { useResponsive } from 'src/hooks/use-responsive';
+import { useOffSetTop } from 'src/hooks/use-off-set-top';
 
 import { HEADER } from '../config-layout';
 import Searchbar from '../common/searchbar';
@@ -28,6 +30,10 @@ type Props = {
 };
 
 export default function Header({ headerOnDark }: Props) {
+  const pathname = usePathname();
+
+  const disableSticky = pathname === '/hotel' || pathname === '/hotel/';
+
   const theme = useTheme();
 
   const offset = useOffSetTop();
@@ -35,7 +41,7 @@ export default function Header({ headerOnDark }: Props) {
   const mdUp = useResponsive('up', 'md');
 
   return (
-    <AppBar>
+    <AppBar sx={{ position: disableSticky ? 'absolute' : 'fixed' }}>
       <Toolbar
         disableGutters
         sx={{
@@ -79,7 +85,7 @@ export default function Header({ headerOnDark }: Props) {
               <Button
                 variant="contained"
                 color="inherit"
-                href={paths.zoneStore}
+                href={paths.hotel.root}
                 target="_blank"
                 rel="noopener"
               >

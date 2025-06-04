@@ -93,7 +93,7 @@ export default function HomeHero() {
                 size="large"
                 variant="contained"
                 endIcon={<Iconify icon="carbon:search" />}
-                href={paths.minimalStore}
+                href={paths.hotel.root}
               >
                 Захиалга хийх
               </Button>
