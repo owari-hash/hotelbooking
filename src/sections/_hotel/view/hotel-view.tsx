@@ -1,67 +1,41 @@
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import { alpha, useTheme } from '@mui/material/styles';
+'use client';
 
-import { bgGradient } from 'src/theme/css';
-import { useBoolean } from 'src/hooks/use-boolean';
-import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
+import { useScroll } from 'framer-motion';
 
+import { Container } from '@mui/system';
+
+import ScrollProgress from 'src/components/scroll-progress';
+
+import HotelHero from '../hotel-hero';
 import HotelList from '../list/hotel-list';
-import HotelFilters from '../list/hotel-filters';
-import HotelSearch from '../search/hotel-search';
+import HotelByLocation from '../hotel-by-location';
+import HotelFilters from '../filters/hotel-filters';
+
+// ----------------------------------------------------------------------
 
 export default function HotelView() {
-  const theme = useTheme();
-  const openFilters = useBoolean();
+  const { scrollYProgress } = useScroll();
 
   return (
     <>
-      <Box
-        sx={{
-          pt: 8,
-          pb: 12,
-          ...bgGradient({
-            color: alpha(theme.palette.background.default, 0.9),
-            imgUrl: '/assets/background/overlay_1.jpg',
-          }),
-        }}
-      >
-        <Container>
-          <Stack spacing={3}>
-            <CustomBreadcrumbs
-              links={[{ name: 'Нүүр', href: '/' }, { name: 'Буудлын жагсаалт' }]}
-              sx={{ color: 'common.white' }}
-            />
+      <ScrollProgress scrollYProgress={scrollYProgress} />
 
-            <Typography variant="h2" sx={{ color: 'common.white' }}>
-              Буудлын жагсаалт
-            </Typography>
+      <Container>
+        <HotelFilters
+          sx={{
+            mt: 3,
+            mb: { xs: 3, md: 7 },
+          }}
+        />
 
-            <HotelSearch />
-          </Stack>
-        </Container>
-      </Box>
-
-      <Container
-        sx={{
-          mt: -8,
-          mb: 15,
-        }}
-      >
-        <Stack direction="row" spacing={3}>
-          <HotelFilters
-            openFilter={openFilters.value}
-            onOpenFilter={openFilters.onTrue}
-            onCloseFilter={openFilters.onFalse}
-          />
-
-          <Box sx={{ flexGrow: 1 }}>
-            <HotelList />
-          </Box>
-        </Stack>
+        {/* <TravelTourList tours={_tours} loading={loading.value} /> */}
       </Container>
+
+      <HotelHero />
+
+      <HotelList />
+
+      <HotelByLocation />
     </>
   );
 }

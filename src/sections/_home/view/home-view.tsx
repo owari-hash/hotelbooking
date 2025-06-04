@@ -4,6 +4,8 @@ import { useScroll } from 'framer-motion';
 
 import { _brandsColor } from 'src/_mock';
 import ScrollProgress from 'src/components/scroll-progress';
+import HotelPopular from 'src/sections/_hotel/hotel-popular';
+import HotelFeatured from 'src/sections/_hotel/hotel-featured';
 
 import HomeHero from '../home-hero';
 import HomeNewStart from '../home-new-start';
@@ -18,6 +20,10 @@ export default function HomeView() {
       <ScrollProgress scrollYProgress={scrollYProgress} />
 
       <HomeHero />
+
+      <HotelFeatured />
+
+      <HotelPopular />
 
       <CollaborationBrands brands={_brandsColor} />
 

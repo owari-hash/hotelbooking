@@ -58,7 +58,6 @@ export default function Footer() {
   const mainFooter = (
     <>
       <Divider />
-
       <Container>
         <Typography variant="caption" sx={{ color: 'text.secondary' }}>
           © 2025. Бүх эрх хуулиар хамгаалагдсан.

@@ -43,7 +43,7 @@ function Logo({ single = false, sx }: LogoProps) {
             fontWeight: 700,
           }}
         >
-          {single ? 'H' : 'HTBooking'}
+          {single ? 'HTBooking' : 'HTBooking'}
         </Typography>
       </Box>
     </Link>

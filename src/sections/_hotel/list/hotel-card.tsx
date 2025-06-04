@@ -43,7 +43,7 @@ export default function HotelCard({ hotel, loading, listView }: Props) {
     <Card
       sx={{
         display: listView ? 'flex' : 'block',
-        height: '100%', // Fill the container height
+        height: '100%',
       }}
     >
       <Box
