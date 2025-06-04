@@ -87,7 +87,7 @@ export default function Nav({ open, onClose }: Props) {
 
         <Stack spacing={0.5}>
           <TextMaxLine variant="subtitle1" line={1}>
-            Jayvion Simon
+            Хөөрхөн эгч
           </TextMaxLine>
           <TextMaxLine variant="body2" line={1} sx={{ color: 'text.secondary' }}>
             nannie_abernathy70@yahoo.com

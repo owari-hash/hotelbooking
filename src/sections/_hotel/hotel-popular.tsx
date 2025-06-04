@@ -4,10 +4,10 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import { _hotels } from 'src/_mock/_hotel';
+import { _hotels } from 'src/_mock/_hotels';
 import Iconify from 'src/components/iconify';
 
-import HotelCard from './list/hotel-card';
+import HotelCard from './list/hotel-item';
 
 export default function HotelPopular() {
   return (

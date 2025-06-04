@@ -122,7 +122,7 @@ function CarouselItem({ item }: CarouselItemProps) {
             '&:hover': { opacity: 1 },
           }}
         >
-          learn More
+          Дэлгэрэнгүй
           <Iconify icon="eva:arrow-forward-fill" width={16} sx={{ ml: 1 }} />
         </Link>
       </CardContent>

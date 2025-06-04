@@ -67,9 +67,9 @@ const base = (index: number) => ({
     name: _mock.fullName(index),
     role: _mock.role(index),
     avatarUrl: _mock.image.avatar(index),
-    quotes: 'Member since Mar 15, 2021',
+    quotes: '2021 оноос хойш гишүүн байсан.',
     about:
-      'Integer tincidunt. Nullam dictum felis eu pede mollis pretium. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.',
+      'Манай тансаг зэрэглэлийн зочид буудал нь орчин үеийн тав тухтай орчинг бүрдүүлсэн бөгөөд таны амралт, аялал, ажлын хэрэгцээнд бүрэн нийцэх бүх төрлийн үйлчилгээ, тохижилтыг санал болгож байна.',
   },
 });
 

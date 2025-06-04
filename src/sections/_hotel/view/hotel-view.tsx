@@ -1,9 +1,12 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useScroll } from 'framer-motion';
 
 import { Container } from '@mui/system';
 
+import { _hotels } from 'src/_mock/_hotels';
+import { useBoolean } from 'src/hooks/use-boolean';
 import ScrollProgress from 'src/components/scroll-progress';
 
 import HotelHero from '../hotel-hero';
@@ -14,6 +17,15 @@ import HotelFilters from '../filters/hotel-filters';
 // ----------------------------------------------------------------------
 
 export default function HotelView() {
+  const loading = useBoolean(true);
+
+  useEffect(() => {
+    const fakeLoading = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      loading.onFalse();
+    };
+    fakeLoading();
+  }, [loading]);
   const { scrollYProgress } = useScroll();
 
   return (
@@ -28,12 +40,10 @@ export default function HotelView() {
           }}
         />
 
-        {/* <TravelTourList tours={_tours} loading={loading.value} /> */}
+        <HotelList hotels={_hotels} loading={loading.value} />
       </Container>
 
       <HotelHero />
-
-      <HotelList />
 
       <HotelByLocation />
     </>

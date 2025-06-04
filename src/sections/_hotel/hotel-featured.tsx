@@ -1,7 +1,7 @@
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import { _hotelFeatured } from 'src/_mock/_hotel';
+import { _hotelFeatured } from 'src/_mock/_hotels';
 import CarouselCenterMode from 'src/sections/examples/carousel-view/carousel-center-mode';
 
 export default function HotelFeatured() {

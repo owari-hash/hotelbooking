@@ -57,12 +57,12 @@ export const _tours = [...Array(12)].map((_, index) => {
     role: _mock.role(index),
     name: _mock.fullName(index),
     avatarUrl: _mock.image.avatar(index),
-    quotes: 'Member since Mar 15, 2021',
+    quotes: '2021 оноос хойш гишүүн байсан.',
     phoneNumber: _mock.phoneNumber(index),
     ratingNumber: _mock.number.rating(index),
     totalReviews: _mock.number.nativeL(index),
     about:
-      'Integer tincidunt. Nullam dictum felis eu pede mollis pretium. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.',
+      'Манай тансаг зэрэглэлийн зочид буудал нь орчин үеийн тав тухтай орчинг бүрдүүлсэн бөгөөд таны амралт, аялал, ажлын хэрэгцээнд бүрэн нийцэх бүх төрлийн үйлчилгээ, тохижилтыг санал болгож байна.',
     shareLinks: {
       facebook: `facebook/user-name`,
       instagram: `instagram/user-name`,

@@ -3,8 +3,7 @@
 export const paths = {
   hotel: {
     root: '/hotel',
-    list: '/hotel/list',
-    details: (id: string) => `/hotel/${id}`,
+    room: '/hotel/room',
   },
   // Marketing
   marketing: {
