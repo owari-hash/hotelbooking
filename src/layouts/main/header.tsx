@@ -32,7 +32,7 @@ type Props = {
 export default function Header({ headerOnDark }: Props) {
   const pathname = usePathname();
 
-  const disableSticky = pathname === '/hotel' || pathname === '/hotel/';
+  const disableSticky = pathname === '/hotel/';
 
   const theme = useTheme();
 
